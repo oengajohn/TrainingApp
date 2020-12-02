@@ -7,6 +7,8 @@ import io.training.boundary.UserService;
 import io.training.control.rest.UserRESTServerEndpoint;
 import io.training.entity.User;
 
+import java.util.Optional;
+
 @Stateless
 public class UserRESTServerEndpointImpl implements UserRESTServerEndpoint {
   @EJB private UserService userService;
@@ -20,6 +22,24 @@ public class UserRESTServerEndpointImpl implements UserRESTServerEndpoint {
     return Response.ok().entity(user).build();
   }
 
+  @Override
+  public Response retrieveUserByUsername(String username) {
+    Optional<User> userByUsername = userService.getUserByUsername(username);
+    if(userByUsername.isPresent()){
+      return Response.ok().entity(userByUsername.get()).build();
+    }
+    return Response.status(Response.Status.NOT_FOUND).build();
+
+  }
+  @Override
+  public Response retrieveUserByEmail(String email) {
+    Optional<User> userByEmail = userService.getUserByEmail(email);
+    if(userByEmail.isPresent()){
+      return Response.ok().entity(userByEmail.get()).build();
+    }
+    return Response.status(Response.Status.NOT_FOUND).build();
+
+  }
   @Override
   public Response createUser(User user) {
     User createdUser = userService.create(user);

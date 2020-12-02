@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,10 +25,11 @@ public class Post {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   User user;
   @Column
   private String title;
+  @Lob
   @Column
   private String body;
 

@@ -36,7 +36,7 @@
         <replacer.version>1.5.3</replacer.version>
         <version.shrinkwrap.resolvers>3.1.4</version.shrinkwrap.resolvers>
         <wildfly.server.hostname>localhost</wildfly.server.hostname>
-        <wildfly.server.management.port>9991</wildfly.server.management.port>
+        <wildfly.server.management.port>9990</wildfly.server.management.port>
         <wildfly.server.user.username>oenga</wildfly.server.user.username>
         <wildfly.server.user.password>Franjescal 1997</wildfly.server.user.password>
     </properties>

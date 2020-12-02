@@ -27,9 +27,9 @@ public class User {
   private long id;
   @Column
   private String name;
-  @Column
-  private String userNmae;
-  @Column
+  @Column(unique = true)
+  private String username;
+  @Column(unique = true)
   private String email;
   @Embedded
   Address address;
